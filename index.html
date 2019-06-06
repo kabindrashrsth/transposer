@@ -7,15 +7,15 @@
 
     <link
       rel="stylesheet"
-      href="https://bootswatch.com/4/simplex/bootstrap.min.css"
+      href="https://bootswatch.com/4/yeti/bootstrap.min.css"
     />
-
+    <!-- 
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
       integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
       crossorigin="anonymous"
-    />
+    /> -->
 
     <title>Transpose your songs</title>
   </head>
@@ -23,122 +23,151 @@
   <body>
     <h1 class="display-4 text-center text-secondary">Transpose Your Songs!</h1>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <form>
-            <h2>Enter the chords...</h2>
+    <div class="jumbotron">
+      <div style="width: 100%; margin-left: 22%;">
+        <form>
+          <h2>Enter the chords...</h2>
 
-            <div class="row">
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input1"
-                    placeholder="Key"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input2"
-                    placeholder="C#"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input3"
-                    placeholder="D"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input4"
-                    placeholder="D#"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input5"
-                    placeholder="E"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input6"
-                    placeholder="F"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-              </div>
-
-              <div class="col-xs-2">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="user-input7"
-                    placeholder="F#"
-                    class="form-control form-control-lg"
-                  />
-                </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input1"
+                  placeholder="Key"
+                  class="form-control form-control-lg"
+                />
               </div>
             </div>
 
-            <h2>Enter the new key</h2>
-
-            <div class="row">
-              <div class="col-xs-3">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="new-key"
-                    placeholder="New Key"
-                    class="form-control form-control-lg"
-                  />
-                </div>
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input2"
+                  placeholder="C#"
+                  class="form-control form-control-lg"
+                />
               </div>
+            </div>
 
-            <input
-              id="transpose-btn"
-              type="button"
-              value="Transpose"
-              class="btn btn-success btn-block mb-2"
-            />
-          </form>
+            <div class="col-sm-1 ">
+              <div class="form-group ">
+                <input
+                  type="text"
+                  id="user-input3"
+                  placeholder="D"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
 
-          <div class="output">
-            <div class="card card-danger mb-2">
-              <div class="card-block">
-                <h4>New Chords:</h4>
-                <div id="newOutput"></div>
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input4"
+                  placeholder="D#"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input5"
+                  placeholder="E"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input6"
+                  placeholder="F"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input7"
+                  placeholder="F#"
+                  class="form-control form-control-lg"
+                />
               </div>
             </div>
           </div>
 
+          <h2>Enter the new key</h2>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="new-key"
+                  placeholder="New Key"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit button-->
+          <div class="row col-sm-2">
+            <button type="submit" id="transpose-btn" class="btn btn-primary">
+              Transpose
+            </button>
+          </div>
+        </form>
+
+        <div class="row">
+          <div
+            class="alert alert-dismissible alert-warning mt-3"
+            id="warning"
+            style="visibility: hidden;"
+          >
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+            <h4 class="alert-heading">Oh Snap!</h4>
+            <p class="mb-0">
+              It seems like you have entered an invalid chord name. Please check
+              if all of your inputs are valid
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div
+            class="col card text-white bg-info mt-3 mb-3"
+            id="oldOutputCard"
+            style="max-width: 20rem; visibility: hidden; "
+          >
+            <div class="card-header">Old Chords</div>
+            <div class="card-body">
+              <p class="card-text" id="oldOutput"></p>
+            </div>
+          </div>
+
+          <div
+            class="col card text-white bg-success mt-3 mb-3"
+            id="newOutputCard"
+            style="max-width: 20rem; visibility: hidden; "
+          >
+            <div class="card-header">New Chords</div>
+            <div class="card-body">
+              <p class="card-text" id="newOutput"></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
