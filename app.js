@@ -1,17 +1,15 @@
-// let noteArr = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"];
 let noteArr1 = ["C", "D", "E", "F", "G", "A", "B"];
 let noteArr2 = ["m", "b", "#", "7", "3", "9"];
 let noteArr3 = ["m", "7", "3", "9"];
 let noteArr4 = ["7", "3", "9"];
 
-let inputLength = 7;
+let inputLength = 12;
 
 let transposeBtn = document.getElementById("transpose-btn");
 
 transposeBtn.addEventListener("click", transposeProcess);
 
 function transposeProcess(e) {
-  document.getElementById("warning").style.visibility = "hidden";
   e.preventDefault();
 
   let valid = true; // checks if user-input is valid or not
@@ -93,11 +91,19 @@ function transposeProcess(e) {
   } else {
     if (newK === -1) {
       document.getElementById("new-key").style.border = "red solid 2px";
-      showWarning();
+      if (newKID.value === "") {
+        showKeyWarning();
+      } else {
+        showWarning();
+      }
     }
     if (prevK === -1) {
       document.getElementById("user-input1").style.border = "red solid 2px";
-      showWarning();
+      if (prevKID.value === "") {
+        showKeyWarning();
+      } else {
+        showWarning();
+      }
     }
   }
 }
@@ -110,10 +116,19 @@ function capitalizedFirstLetter(inputVal) {
 
 // displays warning
 function showWarning() {
-  document.getElementById("warning").style.visibility = "visible";
-
   document.getElementById("oldOutputCard").style.visibility = "hidden";
   document.getElementById("newOutputCard").style.visibility = "hidden";
+
+  alert(
+    "Woops! It seems like you have entered an invalid chord name. Please check if all of your inputs are valid"
+  );
+}
+
+function showKeyWarning() {
+  document.getElementById("oldOutputCard").style.visibility = "hidden";
+  document.getElementById("newOutputCard").style.visibility = "hidden";
+
+  alert("Don't forget to enter the key!");
 }
 
 // validates the user input
@@ -175,7 +190,7 @@ function validateInput(input) {
 5. undefined - DONE
 6. What if user enters wrong letters? - DONE
 7. IDK why there is a scroll bar - DONE
-8. make it reactive
+8. make it responsive - DONE
 9. not accepting flats. - DONE
 10. how did Bb -> A gave G#? -DONE
 11. how to deal with 'add's?

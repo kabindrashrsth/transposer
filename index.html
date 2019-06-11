@@ -24,12 +24,12 @@
     <h1 class="display-4 text-center text-secondary">Transpose Your Songs!</h1>
 
     <div class="jumbotron" style="overflow: hidden;">
-      <div style="width: 100%; margin-left: 22%;">
+      <div style="width: 100%; margin: auto;">
         <form>
           <h2>Enter the chords...</h2>
 
           <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -40,7 +40,7 @@
               </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -51,7 +51,7 @@
               </div>
             </div>
 
-            <div class="col-sm-1 ">
+            <div class="col-sm-2 ">
               <div class="form-group ">
                 <input
                   type="text"
@@ -62,18 +62,18 @@
               </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
                   id="user-input4"
-                  placeholder="D#"
+                  placeholder="Eb"
                   class="form-control form-control-lg"
                 />
               </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -84,7 +84,7 @@
               </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -95,7 +95,7 @@
               </div>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -105,6 +105,62 @@
                 />
               </div>
             </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input8"
+                  placeholder="G"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input9"
+                  placeholder="G#"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input10"
+                  placeholder="A"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input11"
+                  placeholder="Bb"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input12"
+                  placeholder="B"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
           </div>
 
           <h2>Enter the new key</h2>
@@ -127,47 +183,31 @@
               Transpose
             </button>
           </div>
+
+          <div class="row" style="justify-content: center; align-items: center;">
+            <div
+              class="col-sm-6 card text-white bg-info mt-2 mb-2 form-group"
+              id="oldOutputCard"
+              style="max-width: 20rem; visibility: hidden; margin-right: 4%; "
+            >
+              <div class="card-header">Old Chords</div>
+              <div class="card-body">
+                <p class="card-text" id="oldOutput"></p>
+              </div>
+            </div>
+  
+            <div
+              class="col-sm-6 card text-white bg-success mt-2 mb-2 form-group"
+              id="newOutputCard"
+              style="max-width: 20rem; visibility: hidden; margin-right: 4%;"
+            >
+              <div class="card-header">New Chords</div>
+              <div class="card-body">
+                <p class="card-text" id="newOutput"></p>
+              </div>
+            </div>
         </form>
 
-        <div class="row">
-          <div
-            class="alert alert-dismissible alert-warning mt-3"
-            id="warning"
-            style="visibility: hidden;"
-          >
-            <button type="button" class="close" data-dismiss="alert">
-              &times;
-            </button>
-            <h4 class="alert-heading">Oh Snap!</h4>
-            <p class="mb-0">
-              It seems like you have entered an invalid chord name. Please check
-              if all of your inputs are valid
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div
-            class="col card text-white bg-info mt-3 mb-3"
-            id="oldOutputCard"
-            style="max-width: 20rem; visibility: hidden; "
-          >
-            <div class="card-header">Old Chords</div>
-            <div class="card-body">
-              <p class="card-text" id="oldOutput"></p>
-            </div>
-          </div>
-
-          <div
-            class="col card text-white bg-success mt-3 mb-3"
-            id="newOutputCard"
-            style="max-width: 20rem; visibility: hidden; "
-          >
-            <div class="card-header">New Chords</div>
-            <div class="card-body">
-              <p class="card-text" id="newOutput"></p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
