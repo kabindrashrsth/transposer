@@ -1,7 +1,20 @@
-let noteArr1 = ["C", "D", "E", "F", "G", "A", "B"];
-let noteArr2 = ["m", "b", "#", "7", "3", "9"];
-let noteArr3 = ["m", "7", "3", "9"];
-let noteArr4 = ["7", "3", "9"];
+let noteArr1 = [
+  "C",
+  "C#",
+  "D",
+  "Eb",
+  "E",
+  "F",
+  "F#",
+  "G",
+  "G#",
+  "A",
+  "Bb",
+  "B"
+];
+//let noteArr2 = ["m", "b", "#", "7", "3", "9"];
+let noteArr2 = ["m"];
+let noteArr3 = ["7", "9", "2", "4"];
 
 let inputLength = 12;
 
@@ -21,13 +34,14 @@ function transposeProcess(e) {
   let newKID = document.getElementById("new-key");
 
   // Previous Key
-  let prevK = noteArr1.indexOf(capitalizedFirstLetter(prevKID.value).charAt(0));
+  let prevK = noteArr1.indexOf(
+    capitalizedFirstLetter(filterInput(prevKID.value))
+  );
 
   // New Key
-  let newK = noteArr1.indexOf(capitalizedFirstLetter(newKID.value).charAt(0));
-
-  console.log(prevK);
-  console.log(newK);
+  let newK = noteArr1.indexOf(
+    capitalizedFirstLetter(filterInput(newKID.value))
+  );
 
   if (newK != -1 && prevK != -1) {
     // newK is valid, so sets green border
@@ -58,9 +72,10 @@ function transposeProcess(e) {
           inputID.style.border = "green solid 1px";
           inputArr.push(inputVal);
           // transpoing and adding the values to the array outputVal
-          let i = noteArr1.indexOf(inputVal.charAt(0));
+          let i = noteArr1.indexOf(filterInput(inputVal));
           outputVal.push(
-            noteArr1[(i + addingFactor) % noteArr1.length] + inputVal.slice(1)
+            noteArr1[(i + addingFactor) % noteArr1.length] +
+              inputSlice(inputVal)
           );
         }
       }
@@ -131,52 +146,97 @@ function showKeyWarning() {
   alert("Don't forget to enter the key!");
 }
 
+// filters the input to get only the values that match with values of noteArr1
+function filterInput(input) {
+  if (input.charAt(1) === "b" || input.charAt(1) === "#") {
+    return input.substring(0, 2);
+  } else {
+    return input.charAt(0);
+  }
+}
+
+// input slice
+function inputSlice(input) {
+  if (input.charAt(1) === "b" || input.charAt(1) === "#") {
+    return input.slice(2);
+  } else {
+    return input.slice(1);
+  }
+}
+
 // validates the user input
 function validateInput(input) {
   let isValid = false;
 
-  switch (input.length) {
-    case 1:
-      if (noteArr1.indexOf(input) != -1) {
-        isValid = true;
-      }
-      break;
+  let firstHalf = filterInput(input);
+  let secondHalf = inputSlice(input);
 
-    case 2:
-      if (
-        noteArr1.indexOf(input.charAt(0)) != -1 &&
-        noteArr2.indexOf(input.charAt(1)) != -1
-      ) {
-        isValid = true;
-      }
-      break;
+  console.log(inputSlice("d").length);
 
-    case 3:
-      if (
-        noteArr1.indexOf(input.charAt(0)) != -1 &&
-        noteArr2.indexOf(input.charAt(1)) != -1 &&
-        noteArr3.indexOf(input.charAt(2)) != -1 &&
-        input.charAt(1) != input.charAt(2)
-      ) {
-        isValid = true;
-      }
-      break;
+  if (noteArr1.indexOf(firstHalf) != -1) {
+    if (secondHalf.length > 0) {
+      switch (secondHalf.length) {
+        case 1:
+          if (
+            noteArr2.indexOf(secondHalf) != -1 ||
+            noteArr3.indexOf(secondHalf) != -1
+          ) {
+            isValid = true;
+          }
+          break;
 
-    case 4:
-      if (
-        noteArr1.indexOf(input.charAt(0)) != -1 &&
-        noteArr2.indexOf(input.charAt(1)) != -1 &&
-        noteArr3.indexOf(input.charAt(2)) != -1 &&
-        noteArr4.indexOf(input.charAt(3)) != -1 &&
-        input.charAt(1) != input.charAt(2) &&
-        input.charAt(2) != input.charAt(3)
-      ) {
-        isValid = true;
+        case 2:
+          if (
+            noteArr2.indexOf(secondHalf.charAt(0)) != -1 &&
+            noteArr3.indexOf(secondHalf.charAt(1)) != -1
+          ) {
+            isValid = true;
+          }
+          break;
+
+        case 4:
+          if (
+            (secondHalf.substring(0, 3).toLowerCase() === "add" &&
+              noteArr3.indexOf(secondHalf.charAt(3)) != -1) ||
+            (secondHalf.substring(0, 3).toLowerCase() === "sus" &&
+              noteArr3.indexOf(secondHalf.charAt(3)) != -1)
+          ) {
+            isValid = true;
+          }
+          break;
+
+        case 5:
+          if (
+            noteArr2.indexOf(secondHalf.charAt(0)) != -1 &&
+            secondHalf.substring(1, 4).toLowerCase() === "add" &&
+            noteArr3.indexOf(secondHalf.charAt(4)) != -1
+          ) {
+            isValid = true;
+          }
+          break;
       }
-      break;
+    } else {
+      isValid = true;
+    }
   }
 
   return isValid;
 }
 
+/*
+//Things to fix:
+1. 
+2. UI - DONE for now
+3. What to do when user enters a minor chord?
+   Make two arrays: one for first letter and another for all possible second characters. - DONE
 
+4. 
+5. undefined - DONE
+6. What if user enters wrong letters? - DONE
+7. IDK why there is a scroll bar - DONE
+8. make it responsive - DONE
+9. not accepting flats. - DONE
+10. how did Bb -> A gave G#? -DONE
+11. how to deal with 'add's?
+
+*/
