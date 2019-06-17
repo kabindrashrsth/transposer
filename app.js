@@ -12,7 +12,7 @@ let noteArr1 = [
   "Bb",
   "B"
 ];
-//let noteArr2 = ["m", "b", "#", "7", "3", "9"];
+
 let noteArr2 = ["m"];
 let noteArr3 = ["7", "9", "2", "4"];
 
@@ -223,20 +223,4 @@ function validateInput(input) {
   return isValid;
 }
 
-/*
-//Things to fix:
-1. 
-2. UI - DONE for now
-3. What to do when user enters a minor chord?
-   Make two arrays: one for first letter and another for all possible second characters. - DONE
 
-4. 
-5. undefined - DONE
-6. What if user enters wrong letters? - DONE
-7. IDK why there is a scroll bar - DONE
-8. make it responsive - DONE
-9. not accepting flats. - DONE
-10. how did Bb -> A gave G#? -DONE
-11. how to deal with 'add's?
-
-*/
