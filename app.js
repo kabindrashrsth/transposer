@@ -12,7 +12,7 @@ let noteArr1 = [
   "Bb",
   "B"
 ];
-
+//let noteArr2 = ["m", "b", "#", "7", "3", "9"];
 let noteArr2 = ["m"];
 let noteArr3 = ["7", "9", "2", "4"];
 
@@ -28,9 +28,9 @@ function transposeProcess(e) {
   let valid = true; // checks if user-input is valid or not
 
   document.getElementById("new-key").style.border = "none";
-  document.getElementById("user-input1").style.border = "none";
+  document.getElementById("old-key").style.border = "none";
 
-  let prevKID = document.getElementById("user-input1");
+  let prevKID = document.getElementById("old-key");
   let newKID = document.getElementById("new-key");
 
   // Previous Key
@@ -45,7 +45,8 @@ function transposeProcess(e) {
 
   if (newK != -1 && prevK != -1) {
     // newK is valid, so sets green border
-    document.getElementById("new-key").style.border = "green solid 1px";
+    document.getElementById("old-key").style.border = "#E88F00 solid 2px";
+    document.getElementById("new-key").style.border = "#E88F00 solid 2px";
 
     let addingFactor = noteArr1.length + (newK - prevK);
 
@@ -105,7 +106,7 @@ function transposeProcess(e) {
     }
   } else {
     if (newK === -1) {
-      document.getElementById("new-key").style.border = "red solid 2px";
+      newKID.style.border = "red solid 2px";
       if (newKID.value === "") {
         showKeyWarning();
       } else {
@@ -113,7 +114,7 @@ function transposeProcess(e) {
       }
     }
     if (prevK === -1) {
-      document.getElementById("user-input1").style.border = "red solid 2px";
+      prevKID.style.border = "red solid 2px";
       if (prevKID.value === "") {
         showKeyWarning();
       } else {
@@ -222,5 +223,3 @@ function validateInput(input) {
 
   return isValid;
 }
-
-
