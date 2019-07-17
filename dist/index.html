@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/yeti/bootstrap.min.css"
+    />
+   
+    <title>Transpose your songs</title>
+  </head>
+
+  <body>
+    <h1 class="display-4 text-center text-secondary">Transpose Your Songs!</h1>
+
+    <div class="jumbotron" style="overflow: hidden;">
+      <div style="width: 100%; margin: auto;">
+        <form>
+
+            <h2>Enter the current key</h2>
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="form-group" >
+                  <input
+                    type="text"
+                    id="old-key"
+                    placeholder="Old Key"
+                    class="form-control form-control-lg"
+                    style="border: #E88F00 solid 2px"
+                  />
+                </div>
+              </div>
+            </div>
+
+          <h2>Enter the chords...</h2>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input1"
+                  placeholder="C"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input2"
+                  placeholder="C#"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2 ">
+              <div class="form-group ">
+                <input
+                  type="text"
+                  id="user-input3"
+                  placeholder="D"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input4"
+                  placeholder="Eb"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input5"
+                  placeholder="E"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input6"
+                  placeholder="F"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input7"
+                  placeholder="F#"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input8"
+                  placeholder="G"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input9"
+                  placeholder="G#"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input10"
+                  placeholder="A"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input11"
+                  placeholder="Bb"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="user-input12"
+                  placeholder="B"
+                  class="form-control form-control-lg"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          <h2>Enter the new key</h2>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="new-key"
+                  placeholder="New Key"
+                  class="form-control form-control-lg"
+                  style="border: #E88F00 solid 2px"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit button-->
+          <div class="row col-sm-2">
+            <button type="submit" id="transpose-btn" class="btn btn-primary">
+              Transpose
+            </button>
+          </div>
+
+          <div class="row" style="justify-content: center; align-items: center;">
+            <div
+              class="col-sm-6 card text-white bg-info mt-2 mb-2 form-group"
+              id="oldOutputCard"
+              style="max-width: 20rem; visibility: hidden; margin-right: 4%; "
+            >
+              <div class="card-header">Old Chords</div>
+              <div class="card-body">
+                <p class="card-text" id="oldOutput"></p>
+              </div>
+            </div>
+  
+            <div
+              class="col-sm-6 card text-white bg-success mt-2 mb-2 form-group"
+              id="newOutputCard"
+              style="max-width: 20rem; visibility: hidden; margin-right: 4%;"
+            >
+              <div class="card-header">New Chords</div>
+              <div class="card-body">
+                <p class="card-text" id="newOutput"></p>
+              </div>
+            </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
